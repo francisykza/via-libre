@@ -10,13 +10,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Vía Libre">
+<meta name="apple-mobile-web-app-title" content="Vía Libre Demo">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='6' y='6' width='88' height='88' rx='20' fill='%232F7BFF'/%3E%3Cpath d='M30 80 L44 20 M70 80 L56 20' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M50 28v9M50 47v9M50 66v9' stroke='%23FFC23A' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="icon-192.png">
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-192.png">
 <style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{margin:0}body{font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <!-- Vía Libre © 2026 Francisco Muñoz Dorado. Todos los derechos reservados. Autor del diseño, la idea y el contenido. Uso personal autorizado; prohibida su venta, cesión, copia o redistribución sin permiso escrito del autor. -->
-<title>Vía Libre</title>
+<title>Vía Libre · Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Overpass:wght@600;700;800;900&family=Overpass+Mono:wght@600;700&display=swap">
@@ -585,6 +584,23 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .installcta .btn{height:36px;font-size:13.5px;padding:0 12px}
 .installcta .x{background:none;border:0;color:var(--muted);font-size:12px;padding:2px}
 @media (display-mode: fullscreen),(display-mode: standalone){.installcta{display:none!important}}
+.democard{position:relative;display:grid;gap:6px;margin-top:12px;padding:16px;border-radius:22px;border:1px dashed rgba(255,194,58,.6);background:linear-gradient(135deg,rgba(255,194,58,.12),rgba(47,123,255,.08))}
+.democard b{font-family:var(--f-display);font-weight:900;font-size:20px}
+.democard>span:not(.demotag){font-size:14px;color:var(--muted)}
+.democard .next{margin-top:6px;height:48px;font-size:16px}
+.demotag{justify-self:start;padding:3px 10px;border-radius:999px;background:var(--amber);color:var(--amber-ink);font-family:var(--f-display);font-weight:900;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.fbfab{position:fixed;right:16px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:31;padding:10px 14px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--amber),#FF8A3A);color:var(--amber-ink);font-family:var(--f-display);font-weight:900;font-size:14px;box-shadow:0 12px 26px -10px rgba(255,160,60,.9);animation:fabPulse 2.4s ease-in-out infinite}
+@keyframes fabPulse{50%{transform:scale(1.06)}}
+.fbstars{display:flex;justify-content:center;gap:6px;margin:6px 0 14px}
+.fbstars button{width:48px;height:48px;padding:0;border:0;background:none}
+.fbstars .star{width:44px;height:44px;transition:transform .2s}
+.fbstars button:active .star{transform:scale(.85)}
+.fbchips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.fbchip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);font-weight:700;font-size:14px}
+.fbchip.on{border-color:var(--go);background:var(--go-soft);color:var(--go)}
+.fbacts{display:grid;gap:8px;margin-top:12px}
+.fbacts a{display:flex;align-items:center;justify-content:center;text-decoration:none}
+.wa{height:52px;border-radius:16px;background:#25D366;color:#06210F;font-family:var(--f-display);font-weight:900;font-size:17px}
 /* ---------- Hoja / toast / confeti ---------- */
 .sheet{position:fixed;inset:0;z-index:40;display:flex;align-items:flex-end;justify-content:center;background:rgba(3,5,10,.6);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade .25s}
 @keyframes fade{from{opacity:0}}
@@ -650,11 +666,17 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
       <div class="tile glass"><b id="t-days">0</b><span>días seguidos</span></div>
       <div class="tile glass"><b id="t-wrong">0</b><span>por repasar</span></div>
     </div>
+    <div class="democard">
+      <span class="demotag">Demo</span>
+      <b>Versión de prueba</b>
+      <span>Incluye 21 preguntas de muestra, el primer jefe de la campaña y el garaje. La experiencia sube el triple de rápido para que veas cómo mejora tu coche. La versión completa tiene 131 preguntas, 8 jefes y el examen simulado.</span>
+      <button class="next" id="fb-open1">¿Qué te parece? Cuéntamelo</button>
+    </div>
     <div id="installcta"></div>
     <div id="classcta"></div>
     <button class="campaign" id="m-map">
       <span class="cmp-road" aria-hidden="true"></span>
-      <span class="cmp-in"><span class="eyebrow">Modo campaña</span><b>Ruta al carné</b><span id="map-meta">8 paradas · 8 jefes · 1 examen final</span><span class="cmp-bar"><i id="map-bar"></i></span></span>
+      <span class="cmp-in"><span class="eyebrow">Modo campaña</span><b>Ruta al carné</b><span id="map-meta">Demo: primer jefe disponible</span><span class="cmp-bar"><i id="map-bar"></i></span></span>
       <span class="cmp-boss" id="map-boss"></span>
     </button>
     <div id="quests"></div>
@@ -663,7 +685,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
     <div class="modes">
       <button class="mode primary" id="m-exam" style="--d:60ms">
         <span class="ic"><svg viewBox="0 0 52 52"><rect x="2" y="2" width="48" height="48" rx="14" fill="#fff" fill-opacity=".16"/><circle cx="26" cy="28" r="13" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M26 20v8l5 4" stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none"/><path d="M21 10h10" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></span>
-        <span><h3>Examen simulado</h3><p>30 preguntas · 30 min · máx. 3 fallos</p></span>
+        <span><h3>Examen simulado</h3><p>Disponible en la versión completa</p></span>
         <span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
       </button>
       <button class="mode glass" id="m-topic" style="--d:120ms">
@@ -737,6 +759,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
     <div id="sheetbody"></div>
   </div>
 </div>
+<button class="fbfab" id="fb-open2" aria-label="Dar mi opinión sobre la demo">¿Te gusta?</button>
 <div id="flash"></div>
 <div id="speed" aria-hidden="true"></div>
 <div id="toast" role="status"></div>
@@ -884,6 +907,8 @@ const QS=[
 {id:130,t:'Vehículo',s:['etiqueta','C'],q:'Un turismo de gasolina matriculado a partir de 2006, ¿qué etiqueta ambiental lleva normalmente?',o:['La C','La B','La ECO'],c:0,e:'La etiqueta C (verde) corresponde a turismos de gasolina matriculados desde 2006 y diésel desde septiembre de 2015.'},
 {id:131,t:'Vehículo',q:'¿Qué municipios están obligados a tener una Zona de Bajas Emisiones?',o:['Los de más de 50.000 habitantes','Todos los municipios','Solo Madrid y Barcelona'],c:0,e:'La Ley de Cambio Climático obliga a los municipios de más de 50.000 habitantes y a los territorios insulares a establecer zonas de bajas emisiones.'}
 ];
+const DEMO=true,DEMO_IDS=[1,2,3,5,6,8,10,11,36,39,41,44,12,13,16,17,22,30,64,72,98];
+QS.splice(0,QS.length,...QS.filter(q=>DEMO_IDS.includes(q.id)));
 const TOPICS=['Señales','Prioridad','Velocidad','Maniobras','Conductor','Seguridad','Vehículo'];
 
 /* ===== Gráficos ===== */
@@ -948,7 +973,7 @@ function countUp(el,to,d=1300,suffix=''){
 }
 
 /* ===== Progreso guardado en el dispositivo ===== */
-const KEY='vialibre_v2';
+const KEY='vialibre_demo';
 const BLANK=()=>({q:{},wrong:{},best:0,answered:0,correct:0,hist:[],days:{},xp:0,custom:[],ach:{},quest:null,car:null,fuel:30,items:{nitro:2,turbo:1,seguro:1},tune:{},owned:{},map:{},cls:null,sound:true});
 function loadState(){
   let s=null;try{s=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
@@ -964,6 +989,7 @@ function dayStreak(){let d=new Date(),n=0;if(!P.days[dkey(d)])d.setDate(d.getDat
 const LV=[[0,'Peatón'],[100,'Aprendiz'],[250,'En prácticas'],[500,'Copiloto'],[900,'Conductor'],[1400,'Conductor experto'],[2000,'Piloto'],[3000,'Leyenda del asfalto']];
 function level(xp){let i=0;while(i<LV.length-1&&xp>=LV[i+1][0])i++;const cur=LV[i][0],nx=LV[i+1]?LV[i+1][0]:null;return{n:i+1,name:LV[i][1],p:nx?(xp-cur)/(nx-cur):1,toNext:nx?nx-xp:0,next:LV[i+1]?LV[i+1][1]:null}}
 function addXP(n,el){
+  n=n*3;
   const before=level(P.xp).n;P.xp+=n;
   if(el&&!reduce){const r=el.getBoundingClientRect();const f=document.createElement('span');f.className='xpfloat';f.textContent=`+${n} XP`;f.style.left=(r.left+r.width/2)+'px';f.style.top=(r.top-6)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}
   const L=level(P.xp);if(L.n>before)setTimeout(()=>showLevelUp(L.n),700);
@@ -1163,7 +1189,7 @@ const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==
 let deferredInstall=null;
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;renderInstall()});
 addEventListener('appinstalled',()=>{deferredInstall=null;renderInstall();toast('Vía Libre instalada')});
-function renderInstall(){
+function renderInstall(){const _e=$('#installcta');if(_e)_e.innerHTML='';return;
   const el=$('#installcta');if(!el)return;
   let hidden=false;try{hidden=localStorage.getItem('vialibre_noinstall')==='1'}catch(e){}
   if(isStandalone()||hidden){el.innerHTML='';return}
@@ -1181,7 +1207,25 @@ function setupFullscreen(){
   const can=document.fullscreenEnabled&&!isStandalone()&&!isIOS;b.hidden=!can;
   b.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else{await document.documentElement.requestFullscreen({navigationUI:'hide'});try{await screen.orientation.lock('portrait')}catch(e){}}}catch(e){toast('Tu navegador no permite la pantalla completa aquí')}};
 }
-if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})});
+
+/* ===== Opinión sobre la demo ===== */
+const FB={stars:0,likes:[]};
+const LIKES=['Las preguntas','El diseño','Los coches y el garaje','Los jefes y la campaña','Misiones y logros','El sonido'];
+function fbText(){const t=($('#fb-txt')&&$('#fb-txt').value.trim())||'';
+  return `Mi opinión sobre Vía Libre (demo):\nNota: ${FB.stars?'★'.repeat(FB.stars)+'☆'.repeat(5-FB.stars)+` (${FB.stars}/5)`:'sin nota'}\n${FB.likes.length?'Lo que más me gusta: '+FB.likes.join(', ')+'\n':''}${t?'Comentario: '+t:''}`.trim()}
+function openFeedback(){
+  openSheet(`<h3>¿Qué te parece Vía Libre?</h3><p class="sheetp">Tu opinión le ayuda a Francisco a terminar la versión completa.</p>
+  <div class="label">Tu nota</div><div class="fbstars">${[1,2,3,4,5].map(n=>`<button data-st="${n}" aria-label="${n} de 5">${STAR(n<=FB.stars)}</button>`).join('')}</div>
+  <div class="label">Lo que más te gusta</div><div class="fbchips">${LIKES.map(l=>`<button class="fbchip${FB.likes.includes(l)?' on':''}" data-l="${l}">${l}</button>`).join('')}</div>
+  <div class="field"><label class="label" for="fb-txt">Qué cambiarías o añadirías</label><textarea class="inp" id="fb-txt" maxlength="500" placeholder="Escribe lo que quieras…"></textarea></div>
+  <div class="fbacts"><a class="wa" id="fb-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="ghost" id="fb-copy">Copiar mi opinión</button></div>`);
+  document.querySelectorAll('.fbstars button').forEach(b=>b.onclick=()=>{FB.stars=+b.dataset.st;sfx('coin');document.querySelectorAll('.fbstars button').forEach(x=>x.innerHTML=STAR(+x.dataset.st<=FB.stars));upd()});
+  document.querySelectorAll('.fbchip').forEach(b=>b.onclick=()=>{const l=b.dataset.l;FB.likes=FB.likes.includes(l)?FB.likes.filter(x=>x!==l):FB.likes.concat(l);b.classList.toggle('on');upd()});
+  const upd=()=>{$('#fb-wa').href='https://wa.me/?text='+encodeURIComponent(fbText())};
+  $('#fb-txt').oninput=upd;upd();
+  $('#fb-copy').onclick=async()=>{const t=fbText();try{await navigator.clipboard.writeText(t);toast('Copiado: pégalo en WhatsApp a Francisco')}catch(e){$('#fb-txt').focus();toast('No se pudo copiar automáticamente')}};
+}
+$('#fb-open1').onclick=openFeedback;$('#fb-open2').onclick=openFeedback;
 /* ===== Navegación ===== */
 function show(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));
@@ -1194,6 +1238,7 @@ function show(id){
   if(id==='garage')renderGarage();
   if(id==='map')renderMap();
   if(id!=='quiz'){const sp=$('#speed');if(sp)sp.classList.remove('on')}
+  const fab=$('#fb-open2');if(fab)fab.hidden=!(id==='garage'||id==='map'||id==='result'||id==='progress');
 }
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.go));
 $('#lvchip').onclick=()=>show('progress');
@@ -1264,14 +1309,14 @@ function renderHome(){
   $('#classcta').innerHTML=cl?'':`<button class="classcta glass" id="cls-open"><span class="clico">${CLASSES[0].ic}</span><span style="min-width:0"><b>Elige tu clase de conductor</b><span>Prudente, Velocista o Estratega: cada una da un bonus de XP.</span></span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span></button>`;
   if($('#cls-open'))$('#cls-open').onclick=openClassPicker;
   const beaten=STAGES.filter((_,k)=>stageState(k).beaten).length+(P.map&&P.map.final&&P.map.final.st?1:0),cur=STAGES.findIndex((_,k)=>!stageState(k).beaten);
-  $('#map-meta').textContent=beaten>=8?'¡Ruta completada! Mejora tus estrellas':cur<0?`Final: ${FINAL.boss} te espera`:`Parada ${cur+1}: ${STAGES[cur].town} · ${beaten}/8`;
+  $('#map-meta').textContent=stageState(0).beaten?'Demo superada · 7 jefes más en la versión completa':`Demo · Parada 1: ${STAGES[0].town}`;void(beaten>=8?'¡Ruta completada! Mejora tus estrellas':cur<0?`Final: ${FINAL.boss} te espera`:`Parada ${cur+1}: ${STAGES[cur].town} · ${beaten}/8`);
   $('#map-boss').innerHTML=cur<0?BOSS:bossAv(STAGES[cur].t);
   requestAnimationFrame(()=>{$('#map-bar').style.width=beaten/8*100+'%'});
   syncSound();renderInstall();
   requestAnimationFrame(()=>{$('#lvarc').style.strokeDashoffset=94.25*(1-L.p);$('#readybar').style.width=rd+'%';$('#readybar').style.backgroundSize=(rd?100/rd*100:100)+'% 100%'});
   countUp($('#readypct'),rd,1300,'%');
 }
-$('#m-exam').onclick=()=>start('exam');
+$('#m-exam').onclick=()=>toast('El examen simulado de 30 preguntas está en la versión completa');
 $('#m-review').onclick=()=>start('review');
 $('#m-streak').onclick=()=>start('streak');
 $('#m-map').onclick=()=>show('map');
@@ -1556,8 +1601,8 @@ const STAGES=[
  {t:'Vehículo',town:'Taller Viejo',boss:'El Mecánico Oxidado',col:'#2E2316',taunts:['1,6 milímetros… o te pincho.','¿Cuándo pasaste la ITV?','Tu coche hace un ruido raro.']}
 ];
 const FINAL={town:'Centro de Examen',boss:'El Examinador'};
-function stageState(k){const m=P.map||{};const st=m[k]?m[k].st:0;const prevOk=k===0||(m[k-1]&&m[k-1].st>0);return{st,open:prevOk,beaten:st>0}}
-function finalOpen(){return STAGES.every((_,k)=>stageState(k).beaten)}
+function stageState(k){const m=P.map||{};const st=m[k]?m[k].st:0;const prevOk=k===0;return{st,open:prevOk,beaten:st>0}}
+function finalOpen(){return false}
 function bossAv(t,big){
   const S0=STAGES.find(s=>s.t===t);const sg=signSVG(TOPIC_ICON[t]).replace('<svg ','<svg x="9" y="12" width="34" height="34" ');
   return `<svg viewBox="0 0 52 52" aria-hidden="true"${big?' class="bigboss"':''}><rect width="52" height="52" rx="14" fill="${S0?S0.col:'#2B1630'}"/>${sg}<g><ellipse cx="19" cy="15" rx="5" ry="4" fill="#fff"/><ellipse cx="33" cy="15" rx="5" ry="4" fill="#fff"/><circle cx="20" cy="16" r="2" fill="#121821"/><circle cx="32" cy="16" r="2" fill="#121821"/><path d="M13 9l11 4M39 9l-11 4" stroke="#121821" stroke-width="2.6" stroke-linecap="round"/></g></svg>`;
@@ -1812,6 +1857,7 @@ function finish(timeout){
   requestAnimationFrame(()=>requestAnimationFrame(()=>{$('#fgc').style.strokeDashoffset=C*(1-frac);$('#rxp').style.width=(L.p*100)+'%'}));
   countUp($('#countup'),num);
   if(pass){setTimeout(()=>confetti(160),reduce?0:1000);buzz([40,60,40,60,120]);if(mode!=='boss')sfx('win')}
+  if(mode==='boss')setTimeout(()=>toast('¿Te ha gustado? Pulsa «¿Te gusta?» y cuéntaselo a Francisco'),2600);
 }
 
 /* ===== Confeti ===== */
